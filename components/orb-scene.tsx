@@ -60,6 +60,8 @@ const BASE_PITCH = 0.2;
 const MAX_PITCH = 0.6;
 const FOV = 38;
 const FIT_RADIUS = 5.1;
+const FIT_PADDING_X = 40;
+const FIT_PADDING_Y = 48;
 
 type NodeState = {
   id: string;
@@ -299,9 +301,11 @@ export default function OrbScene({
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       const halfFov = Math.tan((FOV * Math.PI) / 360);
-      const fitHorizontal = FIT_RADIUS / (halfFov * camera.aspect);
-      const fitVertical = FIT_RADIUS / halfFov;
-      camera.position.set(0, 0.8, Math.max(10.5, Math.min(fitHorizontal, fitVertical)));
+  const usableHorizontal = Math.max(0.3, 1 - FIT_PADDING_X / (width / 2));
+  const usableVertical = Math.max(0.3, 1 - FIT_PADDING_Y / (height / 2));
+  const fitHorizontal = Math.hypot(FIT_RADIUS, FIT_RADIUS / (halfFov * camera.aspect * usableHorizontal));
+  const fitVertical = Math.hypot(FIT_RADIUS, FIT_RADIUS / (halfFov * usableVertical));
+  camera.position.set(0, 0.8, Math.max(10.5, fitHorizontal, fitVertical));
       camera.lookAt(0, 0, 0);
       camera.updateProjectionMatrix();
       dirty = true;
