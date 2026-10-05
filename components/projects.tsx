@@ -16,15 +16,15 @@ export function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="border-t border-line bg-ivory-deep/50"
+      className="border-t border-line bg-navy"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-cobalt">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ice">
           Projects
         </p>
         <h2
           id="projects-title"
-          className="max-w-2xl text-balance font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-5xl"
+          className="max-w-2xl text-balance font-serif text-4xl font-semibold leading-tight tracking-tight text-ivory sm:text-5xl"
         >
           Four things I&apos;ve been building.
         </h2>
@@ -41,8 +41,8 @@ export function Projects() {
                   onClick={() => setActive(filter)}
                   className={`min-h-11 rounded-full border-2 px-5 text-sm font-semibold transition-colors ${
                     pressed
-                      ? "border-cobalt bg-cobalt text-white"
-                      : "border-charcoal/30 bg-transparent text-charcoal hover:border-charcoal"
+                      ? "border-ice bg-ice text-midnight"
+                      : "border-ice/40 bg-transparent text-ivory hover:border-ice hover:bg-ice/10"
                   }`}
                 >
                   {filter}
@@ -50,7 +50,7 @@ export function Projects() {
               );
             })}
           </div>
-          <p role="status" aria-live="polite" className="text-sm font-medium text-charcoal-soft">
+          <p role="status" aria-live="polite" className="text-sm font-medium text-ivory-soft">
             Showing {visible.length} of {projects.length} projects
           </p>
         </div>

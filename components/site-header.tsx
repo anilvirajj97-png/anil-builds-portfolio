@@ -24,11 +24,11 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-ivory/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-midnight/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a
           href="#top"
-          className="font-serif text-xl font-semibold tracking-tight text-charcoal"
+          className="font-serif text-xl font-semibold tracking-tight text-ivory"
         >
           Anil Builds
         </a>
@@ -39,7 +39,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-charcoal-soft transition-colors hover:text-cobalt"
+                  className="text-ivory-soft transition-colors hover:text-ice"
                 >
                   {link.label}
                 </a>
@@ -51,7 +51,7 @@ export function SiteHeader() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line text-charcoal sm:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-ice/30 text-ivory sm:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -80,7 +80,7 @@ export function SiteHeader() {
         id="mobile-nav"
         aria-label="Mobile"
         hidden={!open}
-        className="border-t border-line bg-ivory sm:hidden"
+        className="border-t border-line bg-midnight sm:hidden"
       >
         <ul className="mx-auto flex max-w-6xl flex-col px-5 py-2">
           {links.map((link) => (
@@ -88,7 +88,7 @@ export function SiteHeader() {
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-base font-medium text-charcoal hover:text-cobalt"
+                className="block py-3 text-base font-medium text-ivory hover:text-ice"
               >
                 {link.label}
               </a>
