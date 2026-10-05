@@ -6,21 +6,21 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article
       aria-labelledby={titleId}
-      className="flex w-full flex-col rounded-3xl border border-line bg-ivory p-7 shadow-[0_1px_0_rgba(31,35,40,0.04)] transition-shadow hover:shadow-[0_12px_32px_-16px_rgba(31,35,40,0.25)] sm:p-9"
+      className="flex w-full flex-col rounded-3xl border border-line bg-panel p-7 transition-colors hover:border-ice/40 sm:p-9"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <span className="font-serif text-3xl text-cobalt" aria-hidden="true">
+        <span className="font-serif text-3xl text-ice" aria-hidden="true">
           {project.number}
         </span>
-        <span className="rounded-full bg-cobalt-tint px-3 py-1 text-xs font-semibold text-cobalt-dark">
+        <span className="rounded-full border border-ice/30 px-3 py-1 text-xs font-semibold text-ice">
           {project.badge}
         </span>
       </div>
 
-      <h3 id={titleId} className="mt-6 font-serif text-3xl font-semibold tracking-tight">
+      <h3 id={titleId} className="mt-6 font-serif text-3xl font-semibold tracking-tight text-ivory">
         {project.name}
       </h3>
-      <p className="mt-4 text-pretty leading-relaxed text-charcoal-soft">
+      <p className="mt-4 text-pretty leading-relaxed text-ivory-soft">
         {project.description}
       </p>
 
@@ -29,7 +29,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.sections.map((section) => (
             <li
               key={section}
-              className="rounded-full border border-charcoal/25 px-3 py-1 text-sm text-charcoal"
+              className="rounded-full border border-ice/25 px-3 py-1 text-sm text-ivory"
             >
               {section}
             </li>
@@ -40,8 +40,8 @@ export function ProjectCard({ project }: { project: Project }) {
       {(project.note || project.link) && (
         <div className="mt-auto flex flex-col gap-4 pt-8">
           {project.note && (
-            <p className="flex items-center gap-2 text-sm font-medium text-charcoal">
-              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-cobalt" />
+            <p className="flex items-center gap-2 text-sm font-medium text-ivory">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-ice" />
               {project.note}
             </p>
           )}
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: { project: Project }) {
               href={project.link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full bg-charcoal px-6 text-sm font-semibold text-ivory transition-colors hover:bg-cobalt"
+              className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full bg-ivory px-6 text-sm font-semibold text-midnight transition-colors hover:bg-ice"
             >
               {project.link.label}
               <span className="sr-only">for {project.name} (opens in a new tab)</span>
